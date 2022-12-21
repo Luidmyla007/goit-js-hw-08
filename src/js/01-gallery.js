@@ -6,5 +6,5 @@ import SimpleLightbox from "simplelightbox";
 // console.log(SimpleLightbox);
 
 // console.log(galleryItems);
-const test = 10;
+const test = 11;
 console.log(test);
