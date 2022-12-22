@@ -19,11 +19,16 @@
   },
   "dependencies": {
     "@vimeo/player": "^2.18.0",
+    "lodash": "^4.17.21",
+    "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "simplelightbox": "^2.11.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/preset-env": "^7.20.2",
     "@parcel/transformer-sass": "^2.6.0",
+    "babel-plugin-lodash": "^3.3.4",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
