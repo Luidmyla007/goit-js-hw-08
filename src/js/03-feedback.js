@@ -5,7 +5,7 @@ const refs = {
     input: document.querySelector('.feedback-form input'),
     textarea: document.querySelector('.feedback-form textarea'),
 };
-
+const LOCALSTORAGE_KEY = "feedback-form-state";
 const SummaryData = {};
 
 refs.form.addEventListener('submit', onFormSubmit);
@@ -20,34 +20,29 @@ refs.form.addEventListener('input', evt => {
 function onFormSubmit(evt) {
     evt.preventDefault();
     evt.currentTarget.reset();
-    localStorage.removeItem('feedback-message');
-    localStorage.removeItem('feedback-email');
+    localStorage.removeItem(LOCALSTORAGE_KEY);
 }
 
 function onEmailInput(evt) {
     const userEmail = evt.target.value; 
-    localStorage.setItem('feedback-email', userEmail);
+    localStorage.setItem(LOCALSTORAGE_KEY, userEmail);
+     const saveEmail = localStorage.getItem(LOCALSTORAGE_KEY);
+    if (saveEmail) {
+        refs.input.value = saveEmail;
+    }
 }
 
 
 function onTextareaInput(evt) {
     const message = evt.target.value; 
-    localStorage.setItem('feedback-message', message);
-}
-
-function readyTextareaInput() {
-    const savedMessage = localStorage.getItem ('feedback-message');
+    localStorage.setItem(LOCALSTORAGE_KEY, message);
+    const savedMessage = localStorage.getItem (LOCALSTORAGE_KEY);
     if (savedMessage) {
         refs.textarea.value = savedMessage;
     }
-};
- 
-function readyEmailInput() { 
-    const saveEmail = localStorage.getItem('feedback-email');
-    if (saveEmail) {
-        refs.input.value = saveEmail;
-    }
-};
+}
+
+
 
 
 
